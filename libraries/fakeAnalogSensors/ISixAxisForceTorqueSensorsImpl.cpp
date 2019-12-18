@@ -39,7 +39,7 @@ bool FakeAnalogSensors::getSixAxisForceTorqueSensorFrameName(size_t sens_index, 
 
 bool FakeAnalogSensors::getSixAxisForceTorqueSensorMeasure(size_t sens_index, yarp::sig::Vector& out, double& timestamp) const
 {
-    double diff = startTime - yarp::os::Time::now();
+    double diff = yarp::os::Time::now() - startTime;
     double mult = sens_index + 1;
 
     out[0] = diff * mult;
