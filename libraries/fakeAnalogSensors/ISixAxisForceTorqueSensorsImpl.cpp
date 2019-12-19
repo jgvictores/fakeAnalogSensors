@@ -42,12 +42,7 @@ bool FakeAnalogSensors::getSixAxisForceTorqueSensorMeasure(size_t sens_index, ya
     timestamp = yarp::os::Time::now() - startTime;
     double mult = sens_index + 1;
 
-    out[0] = timestamp * mult;
-    out[1] = timestamp * mult;
-    out[2] = timestamp * mult;
-    out[3] = timestamp * mult;
-    out[4] = timestamp * mult;
-    out[5] = timestamp * mult;
+    out.resize(6, timestamp*mult);
     return true;
 }
 
